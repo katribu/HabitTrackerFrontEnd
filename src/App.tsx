@@ -28,8 +28,10 @@ function App() {
           <h5>Add a new category</h5>
           <input type="text" placeholder="New category"/>
         </div>
-        <Habit habit={habit} setHabit={setHabit}/>
-        <List habits={habit}/>
+        <div>
+          <Habit habit={habit} setHabit={setHabit}/>
+          <List habits={habit}/>
+        </div>
       </div>
     </div>
   );
