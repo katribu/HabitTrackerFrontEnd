@@ -1,1 +1,72 @@
+* {
+    box-sizing: border-box;
+}
 
+body, html {
+    padding: 0;
+    margin: 0;
+    background: rgb(46, 46, 46);
+}
+
+/* ======= HEADER ========= */
+header {
+    width: 100%;
+    background:#34238a;
+    padding: 20px;
+    color: whitesmoke;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.slogan {
+ font-style: italic;
+ letter-spacing: 1px;
+}
+
+header h1 {
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+header p {
+    align-self: center;
+    margin: 0;
+}
+
+
+/* ===== MAIN ====== */
+
+.main {
+    background:#34238a;
+    color: whitesmoke;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 2px #a3a3a3 solid;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px 25px;
+}
+
+.main h5 {
+    margin: 0;
+}
+
+.add-habit-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-habit-div input {
+    margin: 5px;
+}
+
+.submit-btn {
+    width: 100px;
+    margin: 10px auto;
+}
