@@ -1,8 +1,22 @@
-import React from 'react';
+
 import './App.css';
+import Habit from './components/Habit';
 import Header from './components/Header';
+import React, {useState} from "react"
+import List from './components/List';
+
+export interface IState {
+  habits : {
+    habit: string
+    date: string
+  }[]
+}
+
+
 
 function App() {
+
+  const [habit, setHabit] = useState<IState["habits"]>([])
 
 
   return (
@@ -14,14 +28,8 @@ function App() {
           <h5>Add a new category</h5>
           <input type="text" placeholder="New category"/>
         </div>
-
-        <div className="add-habit-div">
-          <h5> Add habit</h5>
-          <input type="text" placeholder="Select habit"/>
-          <input type="text" placeholder="Date" />
-          <button type="submit" className="submit-btn">Add</button>
-        </div>
-
+        <Habit habit={habit} setHabit={setHabit}/>
+        <List habits={habit}/>
       </div>
     </div>
   );
