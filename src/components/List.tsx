@@ -1,24 +1,60 @@
-import React from "react"
+import React, {useState} from "react"
 import {IState as Props} from "../App"
 
+
 interface IProps {
-    habits:Props["habits"]
+    habits: Props["habits"]
 }
 
-export default function List({habits}:IProps) {
+// type HabitOption = {
+//     habits: Props["habits"]
+//   }
+  
+// type Habits = {
+//     habits : HabitOption
+//     habitOptions: HabitOption[]
+//     onChange: (habits: HabitOption) => void
+//   }
 
-    const renderHabits: JSX.Element[] = habits.map((hab,i) => {
-        return (
-            <div key={i}>
-                <h4>{hab.habit}</h4>
-                <p>{hab.date}</p>
-            </div>
-        )
-    })
+export default function List({habits}: IProps) {
+
+const [isOpen, setIsOpen] = useState(false)
+
+
 
     return (
         <div>
-            {renderHabits}
+            <div className="optionsContainer" onBlur={()=>setIsOpen(false)} onClick={()=> setIsOpen(!isOpen)}>
+            <span>{habits[0].habits}</span>
+            <div className="buttonsContainer">
+                <button 
+                className="xBtn" 
+                onClick={(e) => {
+                    e.stopPropagation()
+                }}>
+                    &times; 
+                </button>
+                <div className="divider"></div>
+                <div className="caret"></div>
+            </div>
+            </div>
+
+            <div className="habitOptions">
+                <ul className={`habitList ${isOpen? "show":""}`}>
+                {habits.map((habit,i) => (
+                            <li 
+                            key={i} 
+                            className="date"
+                            onClick={(e)=>{
+                                e.stopPropagation()
+                                setIsOpen(false)
+                            }}
+                            >
+                                {habit.habits}
+                            </li>
+                        ))}
+                </ul>
+            </div>
         </div>
     )
 }

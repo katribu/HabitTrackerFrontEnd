@@ -48,14 +48,14 @@ header p {
     margin: 20px auto;
     border: 2px #a3a3a3 solid;
     border-radius: 10px;
-    display: flex;
-    justify-content: space-evenly;
     padding: 15px 25px;
 }
 
 .main h5 {
     margin: 0;
 }
+
+/* ======== HABIT STYLING =========== */
 
 .add-habit-div {
     display: flex;
@@ -69,4 +69,106 @@ header p {
 .submit-btn {
     width: 100px;
     margin: 10px auto;
+}
+
+
+/*  ====== SELECT STYLING ======= */
+.optionsContainer {
+    border: black solid 1px;
+    background: whitesmoke;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    color: black;
+    justify-content: space-between;
+}
+
+span {
+    flex: 1;
+    /* border: solid red 1px; */
+    align-self: center;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    /* border: blue 1px solid; */
+    padding-right: 5px;
+}
+
+.xBtn {
+    border: none;
+    background: none;
+    color: #777;
+    font-weight: 800;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.xBtn:hover,
+.xBtn:focus {
+    color: #333;
+}
+
+.divider {
+    border-left: 1px black solid;
+    margin: 5px;
+}
+
+.caret {
+    align-self: center;
+    border: 0.25em solid transparent;
+    border-top-color: #777;
+    margin-top: 3.5px;
+}
+
+.caret:hover {
+    cursor: pointer;
+}
+
+.dateOptions,
+.habitOptions {
+    background: whitesmoke;
+    color: black;
+    width: 100px;
+    flex-direction: column;
+}
+
+.dateList,
+.habitList {
+    margin-top: 5px;
+    padding: 0;
+    max-height: 100px;
+    overflow-y: auto;
+    display: none;
+}
+
+.dateList.show,
+.habitList.show {
+    display: block;
+}
+
+
+.date,
+.habit {
+    list-style: none;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date:focus,
+.date:hover {
+    background:#7b66e3;
+    color: white;
+}
+
+.optionFields {
+    display: flex;
 }
