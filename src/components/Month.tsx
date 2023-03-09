@@ -1,38 +1,38 @@
 import {useState} from "react"
 
 
-type SelectOption = {
-    label: string
-    value: string
+type MonthOption = {
+    month:string
+    number:number
 }
 
 
-type SelectProps = {
-    value?: SelectOption
-    options: SelectOption[]
-    onChange: (value:SelectOption | undefined) => void
+type MonthProps = {
+    value: MonthOption
+    monthOptions: MonthOption[]
+    onChange: (value:MonthOption) => void
 }
 
-export default function Select({value, options, onChange}: SelectProps){
+export default function Month({value, monthOptions, onChange}: MonthProps){
     const [isOpen, setIsOpen] = useState(false)
 
-    const clearOptions = () => {
-        onChange(undefined)
-    }
+    // const clearOptions = () => {
+    //     onChange(undefined)
+    // }
 
-    const selectOption = (option: SelectOption) => {
+    const selectOption = (option: MonthOption) => {
         onChange(option)
     }
     return (
         <div>
             <div className="optionsContainer" onBlur={()=>setIsOpen(false)} onClick={()=> setIsOpen(!isOpen)}>
-                <span>{value?.label}</span>
+                <span>{value.month}</span>
                 <div className="buttonsContainer">
                     <button 
                     className="xBtn" 
                     onClick={(e) => {
                         e.stopPropagation()
-                        clearOptions()
+                        // clearOptions()
                     }}>
                         &times; 
                     </button>
@@ -43,18 +43,18 @@ export default function Select({value, options, onChange}: SelectProps){
 
             <div className="dateOptions" >
                 <ul className={`dateList ${isOpen? "show":""}`}>
-                    {options.map(option => (
+                    {monthOptions.map(month => (
                         <li 
-                        key={option.value} 
+                        key={month.number} 
                         className="date"
                         onClick={(e) => {
                             e.stopPropagation()
-                            selectOption(option)
+                            selectOption(month)
                             setIsOpen(false)
                         }}
 
                         >
-                            {option.label}
+                            {month.month}
                         </li>
                     ))}
                 </ul>

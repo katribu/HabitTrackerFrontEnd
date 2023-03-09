@@ -63,12 +63,31 @@ header p {
 }
 
 .add-habit-div input {
-    margin: 5px;
+    margin-top: 5px;
+    width: 50%;
+    height: 35px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
 }
 
 .submit-btn {
     width: 100px;
-    margin: 10px auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background-color: #7b66e3;
+    border: none;  
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: #333;
+    border: 2px solid #7b66e3;
 }
 
 
@@ -81,6 +100,7 @@ header p {
     display: flex;
     color: black;
     justify-content: space-between;
+    border-radius: 5px;
 }
 
 span {
@@ -136,6 +156,7 @@ span {
     color: black;
     width: 100px;
     flex-direction: column;
+    border-radius: 5px;
 }
 
 .dateList,
@@ -145,11 +166,13 @@ span {
     max-height: 100px;
     overflow-y: auto;
     display: none;
+    border-radius: 5px;
 }
 
 .dateList.show,
 .habitList.show {
     display: block;
+    border-radius: 5px;
 }
 
 
@@ -171,4 +194,5 @@ span {
 
 .optionFields {
     display: flex;
+    justify-content: space-evenly;
 }
