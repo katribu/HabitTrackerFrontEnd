@@ -1,15 +1,15 @@
 import React, {useState} from "react"
-import {IState as Props} from "../App"
+import {Habit as Props} from "../App"
 
-
-interface IProps {
-    habit: Props["habits"]
-    setHabit: React.Dispatch<React.SetStateAction<Props["habits"]>>
+interface HabitProps {
+    habit: Props[]
+    setHabit: React.Dispatch<React.SetStateAction<Props[]>>
 }
 
 
 
-export default function Habit({habit, setHabit}: IProps) {
+
+export default function Habit({habit, setHabit}: HabitProps) {
 
     const [input, setInputs] = useState<{habit:string;}>({
         habit: "",

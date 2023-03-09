@@ -1,20 +1,25 @@
 import {useState} from "react"
-import {IState as Props} from "../App"
+import { Habit as Props } from "../App"
 
 
-interface IProps {
-    habits: Props["habits"]
-    habit: Props["habits"][0]
-    onChange: (habit: Props["habits"][0]) => void
+// interface IProps {
+//     habits: Props["habits"]
+//     habit: Props["habits"][0]
+//     // onChange: (habit: Props["habits"][0]) => void
+// }
+
+interface ListProps {
+    habits: Props[]
+    habit: Props
 }
 
 
-export default function List({habits, onChange, habit}: IProps) {
+export default function List({habits, habit}: ListProps) {
 
 const [isOpen, setIsOpen] = useState(false)
 
-    const selectHabit = (option: IProps["habit"]) => {
-        onChange(option)
+    const selectHabit = (option: ListProps["habit"]) => {
+        // onChange(option)
         console.log(option)
     }
     

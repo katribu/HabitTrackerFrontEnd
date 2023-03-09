@@ -6,13 +6,10 @@ import Header from './components/Header';
 import {useState} from "react"
 import Select from './components/Select';
 
-export interface IState {
-  habits : {
-    habits:string;
-  }[]
+
+export interface Habit {
+  habits: string;
 }
-
-
 
 const options = [
   {value: "1", label:"1"},{value: "2", label:"2"},{value: "3", label:"3"},{value: "4", label:"4"},
@@ -28,7 +25,7 @@ const options = [
 
 function App() {
 
-  const [habit, setHabit] = useState<IState["habits"]>([{habits:"Yoga"}])
+  const [habit, setHabit] = useState<Habit[]>([{habits:"Yoga"}])
   const [value, setValue] = useState<typeof options[0] | undefined>(options[0])
 
 console.log(habit)  
@@ -44,7 +41,7 @@ console.log(habit)
 
         <div className="optionFields">
           <Select options={options} value={value} onChange={option => setValue(option)}/>
-          <List habits={habit} onChange={(habit) => setHabit([habit])} habit={habit[0]} />
+          <List habits={habit}  habit={habit[0]} />
          
 
         </div>
@@ -54,3 +51,6 @@ console.log(habit)
 }
 
 export default App;
+
+// onChange prop for List comp.
+// onChange={(habit) => setHabit([habit])}
