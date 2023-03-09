@@ -1,31 +1,27 @@
-import React, {useState} from "react"
+import {useState} from "react"
 import {IState as Props} from "../App"
 
 
 interface IProps {
     habits: Props["habits"]
+    habit: Props["habits"][0]
+    onChange: (habit: Props["habits"][0]) => void
 }
 
-// type HabitOption = {
-//     habits: Props["habits"]
-//   }
-  
-// type Habits = {
-//     habits : HabitOption
-//     habitOptions: HabitOption[]
-//     onChange: (habits: HabitOption) => void
-//   }
 
-export default function List({habits}: IProps) {
+export default function List({habits, onChange, habit}: IProps) {
 
 const [isOpen, setIsOpen] = useState(false)
 
-
-
+    const selectHabit = (option: IProps["habit"]) => {
+        onChange(option)
+        console.log(option)
+    }
+    
     return (
         <div>
             <div className="optionsContainer" onBlur={()=>setIsOpen(false)} onClick={()=> setIsOpen(!isOpen)}>
-            <span>{habits[0].habits}</span>
+            <span>{habit.habits}</span>
             <div className="buttonsContainer">
                 <button 
                 className="xBtn" 
@@ -46,6 +42,7 @@ const [isOpen, setIsOpen] = useState(false)
                             key={i} 
                             className="date"
                             onClick={(e)=>{
+                                selectHabit(habit)
                                 e.stopPropagation()
                                 setIsOpen(false)
                             }}

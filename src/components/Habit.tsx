@@ -1,10 +1,13 @@
 import React, {useState} from "react"
 import {IState as Props} from "../App"
 
+
 interface IProps {
     habit: Props["habits"]
     setHabit: React.Dispatch<React.SetStateAction<Props["habits"]>>
 }
+
+
 
 export default function Habit({habit, setHabit}: IProps) {
 
