@@ -28,7 +28,10 @@ function App() {
   const [habit, setHabit] = useState<Habit[]>([{habits:"Yoga"}])
   const [value, setValue] = useState<typeof options[0] | undefined>(options[0])
 
-console.log(habit)  
+  
+  const handleHabitChange = (selectedHabit: Habit) => {
+    setHabit([selectedHabit, ...habit.filter(h => h !== selectedHabit)]);
+  }; 
   return (
     <div className="App">
       <Header />
@@ -41,7 +44,7 @@ console.log(habit)
 
         <div className="optionFields">
           <Select options={options} value={value} onChange={option => setValue(option)}/>
-          <List habits={habit}  habit={habit[0]} />
+          <List habits={habit}  habit={habit[0]} onChange={handleHabitChange} />
          
 
         </div>
@@ -51,6 +54,3 @@ console.log(habit)
 }
 
 export default App;
-
-// onChange prop for List comp.
-// onChange={(habit) => setHabit([habit])}

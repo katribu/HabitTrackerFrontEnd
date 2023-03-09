@@ -1,27 +1,23 @@
 import {useState} from "react"
 import { Habit as Props } from "../App"
 
-
-// interface IProps {
-//     habits: Props["habits"]
-//     habit: Props["habits"][0]
-//     // onChange: (habit: Props["habits"][0]) => void
-// }
-
 interface ListProps {
     habits: Props[]
     habit: Props
+    onChange: (habit: ListProps["habit"]) => void
 }
 
 
-export default function List({habits, habit}: ListProps) {
+export default function List({habits, habit, onChange}: ListProps) {
 
 const [isOpen, setIsOpen] = useState(false)
 
     const selectHabit = (option: ListProps["habit"]) => {
-        // onChange(option)
-        console.log(option)
-    }
+        const habitIndex = habits.findIndex((h) => h.habits === habit.habits);
+        const updatedHabits = [...habits];
+        updatedHabits[habitIndex] = option;
+        onChange(option);
+      };
     
     return (
         <div>

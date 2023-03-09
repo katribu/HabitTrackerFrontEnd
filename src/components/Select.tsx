@@ -22,7 +22,6 @@ export default function Select({value, options, onChange}: SelectProps){
 
     const selectOption = (option: SelectOption) => {
         onChange(option)
-        console.log(option)
     }
     return (
         <div>
