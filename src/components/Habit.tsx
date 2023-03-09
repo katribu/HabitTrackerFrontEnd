@@ -9,7 +9,7 @@ interface HabitProps {
 
 
 
-export default function Habit({habit, setHabit}: HabitProps) {
+export default function Habits({habit, setHabit}: HabitProps) {
 
     const [input, setInputs] = useState<{habit:string;}>({
         habit: "",

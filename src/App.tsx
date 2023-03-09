@@ -1,5 +1,5 @@
 
-import Habit from './components/Habit';
+import Habits from './components/Habit';
 import List from './components/List';
 import './App.css';
 import Header from './components/Header';
@@ -39,7 +39,7 @@ function App() {
       <div className="main">
         <div>
           <h5>Add a new habit to the list</h5>
-          <Habit habit={habit} setHabit={setHabit} />
+          <Habits habit={habit} setHabit={setHabit} />
         </div>
 
         <div className="optionFields">
