@@ -12,3 +12,9 @@ export async function createNewHabit(habit:string){
     const data = await response.json()
     return data
 }
+
+export async function getHabitOptionList(){
+    const response = await fetch(`${API_URL}/habits`)
+    const data = await response.json()
+    return data;
+}

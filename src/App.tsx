@@ -3,10 +3,11 @@ import Habits from './components/Habit';
 import List from './components/List';
 import './App.css';
 import Header from './components/Header';
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import Day from './components/Day';
 import Month from './components/Month';
 import { options, months } from './utils/selectMenus';
+import { getHabitOptionList } from './utils/fetch';
 
 export interface Habit {
   habits: string;
@@ -18,7 +19,15 @@ function App() {
   const [value, setValue] = useState<typeof options[0] | undefined>(options[0])
   const [currentMonth, setMonth] = useState<typeof months[0]>(months[0])
 
-  
+  async function populateHabitList() {
+    const habitArray = await getHabitOptionList()
+    setHabit(habitArray)
+  }
+
+  useEffect(() => {
+    populateHabitList()
+  },[])
+
   const handleHabitChange = (selectedHabit: Habit) => {
     setHabit([selectedHabit, ...habit.filter(h => h !== selectedHabit)]);
   }; 
