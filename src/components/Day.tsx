@@ -8,17 +8,14 @@ type SelectOption = {
 
 
 type SelectProps = {
-    value?: SelectOption
+    value: SelectOption
     options: SelectOption[]
-    onChange: (value:SelectOption | undefined) => void
+    onChange: (value:SelectOption) => void
 }
 
 export default function Day({value, options, onChange}: SelectProps){
     const [isOpen, setIsOpen] = useState(false)
 
-    const clearOptions = () => {
-        onChange(undefined)
-    }
 
     const selectOption = (option: SelectOption) => {
         onChange(option)
@@ -32,7 +29,6 @@ export default function Day({value, options, onChange}: SelectProps){
                     className="xBtn" 
                     onClick={(e) => {
                         e.stopPropagation()
-                        clearOptions()
                     }}>
                         &times; 
                     </button>

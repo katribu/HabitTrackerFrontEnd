@@ -18,3 +18,17 @@ export async function getHabitOptionList(){
     const data = await response.json()
     return data;
 }
+
+export async function registerDailyHabit(habits:string,month:number,day:number){
+   await fetch(`${API_URL}/registerhabit`,{
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            habits,
+            month,
+            day
+        })
+    })
+}
