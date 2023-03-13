@@ -14,7 +14,7 @@ export interface Habit {
 
 function App() {
 
-  const [habit, setHabit] = useState<Habit[]>([{habits:"Yoga"}])
+  const [habit, setHabit] = useState<Habit[]>([{habits:""}])
   const [value, setValue] = useState<typeof options[0] | undefined>(options[0])
   const [currentMonth, setMonth] = useState<typeof months[0]>(months[0])
 

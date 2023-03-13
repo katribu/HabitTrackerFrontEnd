@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {Habit as Props} from "../App"
+import { createNewHabit } from "../utils/fetch"
 
 interface HabitProps {
     habit: Props[]
@@ -22,20 +23,28 @@ export default function Habits({habit, setHabit}: HabitProps) {
         })
       }
 
-      const handleClick = () : void => {
+      const handleClick = async () => {
         if(!input.habit){
             return;
         }
-        setHabit([
-            ...habit,
-            {
-                habits: input.habit,
-            }
-        ]);
+        if(habit.some(habit => habit.habits.toLowerCase() === input.habit.toLowerCase())){
+            alert("This habit already exists.")
+            setInputs({habit:""})
+            return;
+        }else {
+            setHabit([
+                ...habit,
+                {
+                    habits: input.habit,
+                }
+            ]);
+            await createNewHabit(input.habit)
+        }
 
         setInputs({
             habit:"",
         })
+
       }
     return (
         <div className="add-habit-div">

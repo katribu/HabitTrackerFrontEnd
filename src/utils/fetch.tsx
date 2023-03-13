@@ -1,0 +1,14 @@
+const API_URL = 'http://localhost:3333';
+
+export async function createNewHabit(habit:string){
+    const response = await fetch(`${API_URL}/add`, {
+        method: "POST",
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({habit})
+    })
+
+    const data = await response.json()
+    return data
+}
