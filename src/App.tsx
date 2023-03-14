@@ -8,6 +8,9 @@ import Day from './components/Day';
 import Month from './components/Month';
 import { options, months } from './utils/selectMenus';
 import { getHabitOptionList, registerDailyHabit } from './utils/fetch';
+import HeatMap from './components/HeatMap';
+
+
 
 export interface Habit {
   habits: string;
@@ -40,6 +43,15 @@ function App() {
   const handleHabitChange = (selectedHabit: Habit):void => {
     setHabit([selectedHabit, ...habit.filter(h => h !== selectedHabit)]);
   }; 
+
+  const renderHabitSquares = ():JSX.Element[] => {
+   
+    return habit.map((hab,i) => {
+      return (
+        <HeatMap key={i} habitName={hab.habits}/>
+      )   
+    })
+  }
   return (
     <div className="App">
       <Header />
@@ -56,6 +68,7 @@ function App() {
           <List habits={habit}  habit={habit[0]} onChange={handleHabitChange} />
         </div>
         <button className='submit-btn' onClick={addDailyHabit}>Submit</button>
+        <div>{renderHabitSquares()}</div>
       </div>
     </div>
   );
