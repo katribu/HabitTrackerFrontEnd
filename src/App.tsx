@@ -86,9 +86,15 @@ function App() {
       <Header />
 
       <div className="main">
-        <div>
-          <h5>Add a new habit to the list</h5>
-          <Habits habit={habit} setHabit={setHabit} />
+        <div className="newHabitLegendDiv">
+          <div className="newHabitDiv ">
+            <h5>Add a new habit to the list</h5>
+            <Habits habit={habit} setHabit={setHabit} />
+          </div>
+          <div className="legendDiv">
+            <div className="registeredBox"></div><p>Habit Registered</p>
+            <div className="notRegisteredBox"></div><p>Habit Not Registered</p>
+          </div>
         </div>
 
         <div className="optionFields">
