@@ -229,8 +229,13 @@ span {
     margin: 0 auto;
     background: #7b66e3;
     border-radius: 5px;
+    cursor: pointer;
 }
 
+.monthTitleContainer:hover {
+    background:rgb(46, 46, 46);
+    color: whitesmoke;
+}
 .monthTitleOptions {
     background: #7b66e3;
     color: black;
@@ -239,5 +244,9 @@ span {
     margin: 0 auto;
 }
 
+.noHabitsPara {
+    text-align: center;
+    margin: 30px auto;
+}
 
 

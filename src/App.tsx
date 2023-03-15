@@ -70,19 +70,13 @@ function App() {
   }; 
 
   const renderHabitSquares = () => {
-    if(data.length === 0){
-      return (<p>No habits for this month</p>)
-    }
-    else{
       const habitSquares = data?.map((habit,index) => (
         <div>
           <HeatMap key={index} habitName={habit.habit} />
         </div>
       ));
       return habitSquares;
-    }
   };
-  
   
 
 
@@ -106,7 +100,8 @@ function App() {
         <div>
         </div>
           <MonthTitle value={chosenMonth} monthOptions={months} onChange={option => setChosenMonth(option)} />
-          <div className="allHabits">{renderHabitSquares()}</div>
+          {data.length > 0 ? <div className="allHabits">{renderHabitSquares()}</div> :
+            <p className="noHabitsPara">No habits registered for this month!</p>}
         </div>
     </div>
   );
