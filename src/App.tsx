@@ -71,7 +71,7 @@ function App() {
 
   const renderHabitSquares = () => {
       const habitSquares = data?.map((habit) => (
-        <div key={habit.habit}>
+        <div key={habit.id}>
           <HeatMap habitName={habit.habit} dataDay={habit.day} />
         </div>
       ));
