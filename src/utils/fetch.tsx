@@ -32,3 +32,9 @@ export async function registerDailyHabit(habits:string,month:number,day:number){
         })
     })
 }
+
+export async function registeredHabitsByMonth(month:string){
+    const result = await fetch(`${API_URL}/${month.charAt(0).toUpperCase() + month.slice(1)}`)
+    const data = await result.json()
+    return data;
+}

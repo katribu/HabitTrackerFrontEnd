@@ -7,8 +7,9 @@ import {useState, useEffect} from "react"
 import Day from './components/Day';
 import Month from './components/Month';
 import { options, months } from './utils/selectMenus';
-import { getHabitOptionList, registerDailyHabit } from './utils/fetch';
+import { getHabitOptionList, registerDailyHabit, registeredHabitsByMonth } from './utils/fetch';
 import HeatMap from './components/HeatMap';
+import MonthTitle from './components/MonthTitle';
 
 
 
@@ -16,12 +17,23 @@ export interface Habit {
   habits: string;
 }
 
+interface MonthlyHabitInfo {
+  id: number;
+  habit:string;
+  day:number;
+}
+
 function App() {
 
+  // ===== STATES ====== //
   const [habit, setHabit] = useState<Habit[]>([{habits:""}])
   const [value, setValue] = useState<typeof options[0]>(options[0])
   const [currentMonth, setMonth] = useState<typeof months[0]>(months[0])
+  const [chosenMonth, setChosenMonth] = useState<typeof months[0]>(months[0])
+  const [data, setData] = useState<MonthlyHabitInfo[]>([])
 
+
+  // ===== FETCH REQUEST FUNCTIONS ===== //
   async function populateHabitList() {
     const habitArray = await getHabitOptionList()
     setHabit(habitArray)
@@ -36,22 +48,45 @@ function App() {
     }
   }
 
+  async function renderMonthlyHabits(month:string){
+      const monthlyHabits = await registeredHabitsByMonth(month)
+      setData(monthlyHabits)
+  }
+
+  
+  // ==== USE EFFECTS ===== //
   useEffect(() => {
     populateHabitList()
-  },[])
+  })
 
+  useEffect(() => {
+    renderMonthlyHabits(chosenMonth.month)
+  })
+  
+  // ===== JSX FUNCTIONS USED IN FINAL RETURN ====== //
   const handleHabitChange = (selectedHabit: Habit):void => {
     setHabit([selectedHabit, ...habit.filter(h => h !== selectedHabit)]);
+   
   }; 
 
-  const renderHabitSquares = ():JSX.Element[] => {
-   
-    return habit.map((hab,i) => {
-      return (
-        <HeatMap key={i} habitName={hab.habits}/>
-      )   
-    })
-  }
+  const renderHabitSquares = () => {
+    if(data.length === 0){
+      return (<p>No habits for this month</p>)
+    }
+    else{
+      const habitSquares = data?.map((habit,index) => (
+        <div>
+          <HeatMap key={index} habitName={habit.habit} />
+        </div>
+      ));
+      return habitSquares;
+    }
+  };
+  
+  
+
+
+  // ===== FINAL RETURN OF APP COMPONENT ===== //
   return (
     <div className="App">
       <Header />
@@ -70,7 +105,7 @@ function App() {
         <button className='submit-btn' onClick={addDailyHabit}>Submit</button>
         <div>
         </div>
-          <h2 className="monthTitle">Month</h2>
+          <MonthTitle value={chosenMonth} monthOptions={months} onChange={option => setChosenMonth(option)} />
           <div className="allHabits">{renderHabitSquares()}</div>
         </div>
     </div>
