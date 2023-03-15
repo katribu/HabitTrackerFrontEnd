@@ -16,9 +16,6 @@ type MonthProps = {
 export default function Month({value, monthOptions, onChange}: MonthProps){
     const [isOpen, setIsOpen] = useState(false)
 
-    // const clearOptions = () => {
-    //     onChange(undefined)
-    // }
 
     const selectOption = (option: MonthOption) => {
         onChange(option)
@@ -28,14 +25,6 @@ export default function Month({value, monthOptions, onChange}: MonthProps){
             <div className="optionsContainer" onBlur={()=>setIsOpen(false)} onClick={()=> setIsOpen(!isOpen)}>
                 <span>{value.month}</span>
                 <div className="buttonsContainer">
-                    <button 
-                    className="xBtn" 
-                    onClick={(e) => {
-                        e.stopPropagation()
-                        // clearOptions()
-                    }}>
-                        &times; 
-                    </button>
                     <div className="divider"></div>
                     <div className="caret"></div>
                 </div>

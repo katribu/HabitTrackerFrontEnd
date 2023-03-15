@@ -24,13 +24,6 @@ const [isOpen, setIsOpen] = useState(false)
             <div className="optionsContainer" onBlur={()=>setIsOpen(false)} onClick={()=> setIsOpen(!isOpen)}>
             <span>{habit.habits}</span>
             <div className="buttonsContainer">
-                <button 
-                className="xBtn" 
-                onClick={(e) => {
-                    e.stopPropagation()
-                }}>
-                    &times; 
-                </button>
                 <div className="divider"></div>
                 <div className="caret"></div>
             </div>

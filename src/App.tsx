@@ -68,8 +68,11 @@ function App() {
           <List habits={habit}  habit={habit[0]} onChange={handleHabitChange} />
         </div>
         <button className='submit-btn' onClick={addDailyHabit}>Submit</button>
-        <div>{renderHabitSquares()}</div>
-      </div>
+        <div>
+        </div>
+          <h2 className="monthTitle">Month</h2>
+          <div className="allHabits">{renderHabitSquares()}</div>
+        </div>
     </div>
   );
 }

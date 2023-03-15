@@ -118,22 +118,6 @@ span {
     padding-right: 5px;
 }
 
-.xBtn {
-    border: none;
-    background: none;
-    color: #777;
-    font-weight: 800;
-    align-self: center;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-}
-
-.xBtn:hover,
-.xBtn:focus {
-    color: #333;
-}
-
 .divider {
     border-left: 1px black solid;
     margin: 5px;
@@ -157,6 +141,7 @@ span {
     width: 100px;
     flex-direction: column;
     border-radius: 5px;
+    position:absolute;
 }
 
 .dateList,
@@ -194,7 +179,8 @@ span {
 
 .optionFields {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 50%;
 }
 
 /*  ===== HEAT MAP ==== */
@@ -216,8 +202,8 @@ span {
 .dayBox {
     border-radius: 5px;
     background: #7b66e3;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     border: white solid 2px; 
     margin: 2px;
     display:flex;
@@ -227,5 +213,14 @@ span {
 
 .habitName {
     text-transform: uppercase;
+}
+
+.allHabits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.monthTitle {
+    text-align: center;
 }
 
