@@ -220,7 +220,24 @@ span {
     grid-template-columns: 1fr 1fr;
 }
 
-/*  */
+/* === MONTH TITLE STYLES ==== */
+.monthTitleContainer {
+    border: whitesmoke 2px solid;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    margin: 0 auto;
+    background: #7b66e3;
+    border-radius: 5px;
+}
+
+.monthTitleOptions {
+    background: #7b66e3;
+    color: black;
+    width: 100px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
 
 
 

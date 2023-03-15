@@ -57,7 +57,7 @@ function App() {
   // ==== USE EFFECTS ===== //
   useEffect(() => {
     populateHabitList()
-  })
+  },[])
 
   useEffect(() => {
     renderMonthlyHabits(chosenMonth.month)

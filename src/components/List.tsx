@@ -36,8 +36,8 @@ const [isOpen, setIsOpen] = useState(false)
                             key={i} 
                             className="date"
                             onClick={(e)=>{
-                                selectHabit(habit)
                                 e.stopPropagation()
+                                selectHabit(habit)
                                 setIsOpen(false)
                             }}
                             >
