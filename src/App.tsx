@@ -70,9 +70,9 @@ function App() {
   }; 
 
   const renderHabitSquares = () => {
-      const habitSquares = data?.map((habit,index) => (
-        <div>
-          <HeatMap key={index} habitName={habit.habit} />
+      const habitSquares = data?.map((habit) => (
+        <div key={habit.habit}>
+          <HeatMap habitName={habit.habit} dataDay={habit.day} />
         </div>
       ));
       return habitSquares;

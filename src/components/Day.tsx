@@ -2,8 +2,8 @@ import {useState} from "react"
 
 
 type SelectOption = {
+    value: number
     label: string
-    value: string
 }
 
 

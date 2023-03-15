@@ -10,7 +10,7 @@ export default function Header() {
           </p>
         </div>
         <div>
-          <p>Menu</p>
+          <p></p>
         </div>
       </div>
     </header>

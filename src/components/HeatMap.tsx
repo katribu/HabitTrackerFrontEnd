@@ -2,11 +2,16 @@ import { options } from "../utils/selectMenus"
 
 type HeatMapMProps = {
     habitName:string;
+    dataDay: number;
 }
-export default function HeatMap({habitName}:HeatMapMProps) {
-    const days = options.map(option => {
+export default function HeatMap({habitName,dataDay}:HeatMapMProps) {
+    const days = options.map((option, index) => {
         return (
-          <div  className="dayBox">
+          <div  
+            className={`dayBox
+            ${(option.value === dataDay)? "habitExists":""}`} 
+            key={index}
+          >
             {option.label}
           </div>
         )

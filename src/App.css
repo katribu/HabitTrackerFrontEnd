@@ -211,6 +211,10 @@ span {
     align-items: center;
 }
 
+.habitExists {
+    background: rgb(46, 46, 46);
+}
+
 .habitName {
     text-transform: uppercase;
 }
