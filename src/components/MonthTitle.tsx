@@ -21,7 +21,7 @@ export default function MonthTitle({value, monthOptions, onChange}: MonthProps){
         onChange(option)
     }
     return (
-        <div>
+        <div className="entireMonthTitleDiv">
             <div className="monthTitleContainer" onBlur={()=>setIsOpen(false)} onClick={()=> setIsOpen(!isOpen)}>
                 <span>{value.month}</span>
             </div>

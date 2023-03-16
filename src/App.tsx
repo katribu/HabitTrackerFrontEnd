@@ -87,7 +87,7 @@ function App() {
       <div className="main">
         <div className="newHabitLegendDiv">
           <div className="newHabitDiv ">
-            <h5>Add a new habit to the list</h5>
+            <p>Add a new habit to the list</p>
             <Habits habit={habit} setHabit={setHabit} />
           </div>
           <div className="legendDiv">
