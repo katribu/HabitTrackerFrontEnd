@@ -18,9 +18,8 @@ export interface Habit {
 }
 
 interface MonthlyHabitInfo {
-  id: number;
-  habit:string;
-  day:number;
+  habits:string;
+  days: number[];
 }
 
 function App() {
@@ -70,14 +69,14 @@ function App() {
   }; 
 
   const renderHabitSquares = () => {
-      const habitSquares = data?.map((habit) => (
-        <div key={habit.id}>
-          <HeatMap habitName={habit.habit} dataDay={habit.day} />
-        </div>
-      ));
-      return habitSquares;
-  };
   
+  const habitSquares = data?.map((habit) => (
+      <div key={habit.habits}>
+        <HeatMap habitName={habit.habits} dataDay={habit.days} />
+      </div>
+    ));
+    return habitSquares;
+  };
 
 
   // ===== FINAL RETURN OF APP COMPONENT ===== //
