@@ -38,3 +38,12 @@ export async function registeredHabitsByMonth(month:string){
     const data = await result.json()
     return data;
 }
+
+export async function deleteHabit(id:number){
+    const result = await fetch(`${API_URL}/delete/${id}`,{
+        method: 'DELETE',  
+    })
+
+    const data = await result.json()
+    return data;
+}

@@ -250,7 +250,8 @@ span {
 .square {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .dayBox {
@@ -276,6 +277,8 @@ span {
 .allHabits {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin: 20px auto;
 }
 
 /* === MONTH TITLE STYLES ==== */

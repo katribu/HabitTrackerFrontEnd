@@ -7,7 +7,7 @@ import {useState, useEffect} from "react"
 import Day from './components/Day';
 import Month from './components/Month';
 import { options, months } from './utils/selectMenus';
-import { getHabitOptionList, registerDailyHabit, registeredHabitsByMonth } from './utils/fetch';
+import { getHabitOptionList, registerDailyHabit, registeredHabitsByMonth, deleteHabit } from './utils/fetch';
 import HeatMap from './components/HeatMap';
 import MonthTitle from './components/MonthTitle';
 
@@ -52,6 +52,9 @@ function App() {
       setData(monthlyHabits)
   }
 
+  async function deleteHabitById(id:number){
+    await deleteHabit(id)
+  }
   
   // ==== USE EFFECTS ===== //
   useEffect(() => {
