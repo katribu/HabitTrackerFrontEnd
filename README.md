@@ -1,3 +1,9 @@
+Habit Tracker: -- Turn habits into a routine --
+
+Fullstack app made with Create React App + Typescript, with an Express server written in Typescript and postgresql as the database.
+You can add habits on a daily basis and keep track of them on the calendar. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
