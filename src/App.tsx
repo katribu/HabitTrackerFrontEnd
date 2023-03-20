@@ -20,6 +20,7 @@ export interface Habit {
 interface MonthlyHabitInfo {
   habits:string;
   days: number[];
+  id: number[];
 }
 
 function App() {
@@ -74,7 +75,7 @@ function App() {
   const renderHabitSquares = () => {
   const habitSquares = data?.map((habit) => (
       <div key={habit.habits}>
-        <HeatMap habitName={habit.habits} dataDay={habit.days} />
+        <HeatMap habitName={habit.habits} dataDay={habit.days} dayId={habit.id} />
       </div>
     ));
     return habitSquares;
