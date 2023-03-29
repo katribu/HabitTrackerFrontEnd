@@ -342,6 +342,11 @@ span {
 
     }
 
+    .allHabits {
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 
