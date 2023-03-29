@@ -1,4 +1,3 @@
-
 import Habits from './components/Habit';
 import List from './components/List';
 import './App.css';
@@ -104,7 +103,9 @@ function App() {
           <Day options={options} value={value} onChange={option => setValue(option)}/>
           <List habits={habit}  habit={habit[0]} onChange={handleHabitChange} />
         </div>
-        <button className='submit-btn' onClick={addDailyHabit}>Submit</button>
+        <div className="submit-btn-div">
+         <button className='submit-btn' onClick={addDailyHabit}>Submit</button>  
+        </div> 
         <div>
         </div>
           <MonthTitle value={chosenMonth} monthOptions={months} onChange={option => setChosenMonth(option)} />
